@@ -6,7 +6,4 @@ public class HashGenerator extends domain.collaborators.application.cryptography
         return plain.concat("-hashed");
     }
 
-    public Boolean compare(String plain, String hash) {
-        return plain.concat("-hashed").equals(hash);
-    }
 }
