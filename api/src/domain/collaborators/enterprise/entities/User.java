@@ -77,6 +77,10 @@ public class User extends Entity {
         this.lastLogin = new Date();
     }
 
+    public void updateLastLogin() {
+        this.lastLogin = new Date();
+    }
+
     public static User create(String name, String email, String password, UserRole role, UUID companyId) {
         UUID id = UUID.randomUUID();
         Date createdAt = new Date();

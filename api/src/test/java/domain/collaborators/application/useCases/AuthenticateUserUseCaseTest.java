@@ -1,5 +1,6 @@
 package test.java.domain.collaborators.application.useCases;
 
+import domain.collaborators.application.dtos.AuthenticatedUserResponseDTO;
 import test.java.domain.collaborators.application.cryptography.Encrypter;
 import test.java.domain.collaborators.application.cryptography.HashComparer;
 import test.java.domain.collaborators.application.cryptography.HashGenerator;
@@ -18,8 +19,6 @@ import static org.junit.Assert.assertEquals;
 public class AuthenticateUserUseCaseTest {
 
     private InMemoryUsersRepository usersRepository;
-    private HashComparer hashComparer;
-    private Encrypter encrypter;
     private AuthenticateUserUseCase sut;
 
 
@@ -28,6 +27,7 @@ public class AuthenticateUserUseCaseTest {
         usersRepository = new InMemoryUsersRepository();
         HashComparer hashComparer = new HashComparer();
         Encrypter encrypter = new Encrypter();
+
 
         sut = new AuthenticateUserUseCase(usersRepository, hashComparer, encrypter);
     }
@@ -47,8 +47,13 @@ public class AuthenticateUserUseCaseTest {
 
         usersRepository.create(user);
 
-        sut.execute(email, password);
+        AuthenticatedUserResponseDTO accessToken = sut.execute(email, password);
 
+        Encrypter encrypter = new Encrypter();
+        String idEncrypter = encrypter.encrypt(user.getId().toString());
+
+
+        assertEquals(accessToken.getSub(), idEncrypter);
     }
 
 }

@@ -3,7 +3,7 @@ package domain.collaborators.application.useCases;
 import core.errors.AlreadyExistsError;
 import core.errors.NotFoundError;
 import core.errors.NotPermissionError;
-import domain.collaborators.application.dtos.CreateUserDTO;
+import domain.collaborators.application.dtos.CreateUserRequestDTO;
 import domain.collaborators.application.repositories.UsersRepository;
 import domain.collaborators.enterprise.entities.User;
 import domain.collaborators.enterprise.entities.UserRole;
@@ -21,7 +21,7 @@ public class CreateUserUseCase {
         this.hashGenerator = hashGenerator;
     }
 
-    public void execute(CreateUserDTO props) {
+    public void execute(CreateUserRequestDTO props) {
 
         User userAuthenticated = checkAuthenticatedUser(props.getUserAuthenticatedId());
 

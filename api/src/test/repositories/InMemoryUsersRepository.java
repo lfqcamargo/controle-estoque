@@ -28,4 +28,10 @@ public class InMemoryUsersRepository extends UsersRepository {
                 .orElse(null);
 
     }
+
+    public void save(User user) {
+        this.items.removeIf(userTemp -> userTemp.getId().equals(user.getId()));
+
+        this.items.add(user);
+    }
 }

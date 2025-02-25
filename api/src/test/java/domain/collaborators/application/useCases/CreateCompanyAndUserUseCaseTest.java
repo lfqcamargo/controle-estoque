@@ -1,7 +1,7 @@
 package test.java.domain.collaborators.application.useCases;
 import static org.junit.Assert.*;
 
-import domain.collaborators.application.dtos.CreateCompanyDTO;
+import domain.collaborators.application.dtos.CreateCompanyRequestDTO;
 import domain.collaborators.application.useCases.CreateCompanyAndUserUseCase;
 import core.errors.AlreadyExistsError;
 import org.junit.Before;
@@ -33,7 +33,7 @@ public class CreateCompanyAndUserUseCaseTest {
         String email = "lfqcamargo@gmail.com";
         String password = "123456";
 
-        CreateCompanyDTO dto = new CreateCompanyDTO(cnpj, nameCompany, nameUser, email, password);
+        CreateCompanyRequestDTO dto = new CreateCompanyRequestDTO(cnpj, nameCompany, nameUser, email, password);
 
         sut.execute(dto);
 
@@ -50,7 +50,7 @@ public class CreateCompanyAndUserUseCaseTest {
         String email = "lfqcamargo@gmail.com";
         String password = "123456";
 
-        CreateCompanyDTO dto = new CreateCompanyDTO(cnpj, nameCompany, nameUser, email, password);
+        CreateCompanyRequestDTO dto = new CreateCompanyRequestDTO(cnpj, nameCompany, nameUser, email, password);
 
         sut.execute(dto);
         sut.execute(dto);
@@ -65,8 +65,8 @@ public class CreateCompanyAndUserUseCaseTest {
         String email = "lfqcamargo@gmail.com";
         String password = "123456";
 
-        CreateCompanyDTO dto1 = new CreateCompanyDTO(cnpj, nameCompany, nameUser, email, password);
-        CreateCompanyDTO dto2 = new CreateCompanyDTO("12345", nameCompany, nameUser, email, password);
+        CreateCompanyRequestDTO dto1 = new CreateCompanyRequestDTO(cnpj, nameCompany, nameUser, email, password);
+        CreateCompanyRequestDTO dto2 = new CreateCompanyRequestDTO("12345", nameCompany, nameUser, email, password);
 
         sut.execute(dto1);
         sut.execute(dto2);

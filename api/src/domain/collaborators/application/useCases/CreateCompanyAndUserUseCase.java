@@ -2,14 +2,12 @@ package domain.collaborators.application.useCases;
 
 import core.errors.AlreadyExistsError;
 import domain.collaborators.application.cryptography.HashGenerator;
-import domain.collaborators.application.dtos.CreateCompanyDTO;
+import domain.collaborators.application.dtos.CreateCompanyRequestDTO;
 import domain.collaborators.application.repositories.CompaniesRepository;
 import domain.collaborators.application.repositories.UsersRepository;
 import domain.collaborators.enterprise.entities.Company;
 import domain.collaborators.enterprise.entities.User;
 import domain.collaborators.enterprise.entities.UserRole;
-import test.repositories.InMemoryCompaniesRepository;
-import test.repositories.InMemoryUsersRepository;
 
 public class CreateCompanyAndUserUseCase {
 
@@ -24,7 +22,7 @@ public class CreateCompanyAndUserUseCase {
     }
 
 
-    public void execute(CreateCompanyDTO props) {
+    public void execute(CreateCompanyRequestDTO props) {
         Company companyCnpj = this.companiesRepository.findByCnpj(props.getCnpj());
 
         if (companyCnpj != null) {

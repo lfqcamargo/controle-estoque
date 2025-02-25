@@ -1,18 +1,17 @@
 package domain.collaborators.application.dtos;
 
-import domain.collaborators.enterprise.entities.User;
 import domain.collaborators.enterprise.entities.UserRole;
 
 import java.util.UUID;
 
-public class CreateUserDTO {
+public class CreateUserRequestDTO {
     private final UUID userAuthenticatedId;
     private final String name;
     private final String email;
     private final String password;
     private final UserRole role;
 
-    public CreateUserDTO(UUID userAuthenticatedId, String name, String email, String password, UserRole role) {
+    public CreateUserRequestDTO(UUID userAuthenticatedId, String name, String email, String password, UserRole role) {
         this.userAuthenticatedId = userAuthenticatedId;
         this.name = name;
         this.email = email;

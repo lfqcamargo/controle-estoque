@@ -3,7 +3,7 @@ package test.java.domain.collaborators.application.useCases;
 import core.errors.AlreadyExistsError;
 import core.errors.NotFoundError;
 import core.errors.NotPermissionError;
-import domain.collaborators.application.dtos.CreateUserDTO;
+import domain.collaborators.application.dtos.CreateUserRequestDTO;
 import domain.collaborators.application.useCases.CreateUserUseCase;
 import domain.collaborators.enterprise.entities.User;
 import domain.collaborators.enterprise.entities.UserRole;
@@ -40,7 +40,7 @@ public class CreateUserUseCaseTest {
         String password = "123456";
         UserRole role = UserRole.ADMIN;
 
-        CreateUserDTO dto = new CreateUserDTO(user.getId(), name, email, password, role);
+        CreateUserRequestDTO dto = new CreateUserRequestDTO(user.getId(), name, email, password, role);
 
         sut.execute(dto);
 
@@ -61,7 +61,7 @@ public class CreateUserUseCaseTest {
         String password = "123456";
         UserRole role = UserRole.ADMIN;
 
-        CreateUserDTO dto = new CreateUserDTO(UUID.randomUUID(), name, email, password, role);
+        CreateUserRequestDTO dto = new CreateUserRequestDTO(UUID.randomUUID(), name, email, password, role);
 
         sut.execute(dto);
     }
@@ -78,7 +78,7 @@ public class CreateUserUseCaseTest {
         String password = "123456";
         UserRole role = UserRole.ADMIN;
 
-        CreateUserDTO dto = new CreateUserDTO(user.getId(), name, email, password, role);
+        CreateUserRequestDTO dto = new CreateUserRequestDTO(user.getId(), name, email, password, role);
 
         sut.execute(dto);
     }
@@ -95,7 +95,7 @@ public class CreateUserUseCaseTest {
         String password = "123456";
         UserRole role = UserRole.ADMIN;
 
-        CreateUserDTO dto = new CreateUserDTO(user.getId(), name, email, password, role);
+        CreateUserRequestDTO dto = new CreateUserRequestDTO(user.getId(), name, email, password, role);
 
         sut.execute(dto);
     }

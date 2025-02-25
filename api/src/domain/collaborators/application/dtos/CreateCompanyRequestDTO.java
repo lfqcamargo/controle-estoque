@@ -1,8 +1,6 @@
 package domain.collaborators.application.dtos;
 
-import domain.collaborators.enterprise.entities.UserRole;
-
-public class CreateCompanyDTO {
+public class CreateCompanyRequestDTO {
     private final String cnpj;
     private final String nameCompany;
 
@@ -10,7 +8,7 @@ public class CreateCompanyDTO {
     private final String email;
     private final String password;
 
-    public CreateCompanyDTO(String cnpj, String nameCompany, String nameUser, String email, String password) {
+    public CreateCompanyRequestDTO(String cnpj, String nameCompany, String nameUser, String email, String password) {
         this.cnpj = cnpj;
         this.nameCompany = nameCompany;
 
