@@ -29,6 +29,10 @@ public class InMemoryUsersRepository extends UsersRepository {
 
     }
 
+    public List<User> findAllAdmin(String companyId) {
+        return this.items.stream().filter(User::isAdmin).toList();
+    }
+
     public void save(User user) {
         this.items.removeIf(userTemp -> userTemp.getId().equals(user.getId()));
 
