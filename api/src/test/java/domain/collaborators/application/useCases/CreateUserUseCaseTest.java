@@ -1,30 +1,31 @@
-package test.java.domain.collaborators.application.useCases;
+package domain.collaborators.application.useCases;
 
 import core.errors.AlreadyExistsError;
 import core.errors.NotFoundError;
 import core.errors.NotPermissionError;
+import domain.collaborators.application.cryptography.HashGeneratorTest;
 import domain.collaborators.application.dtos.CreateUserRequestDTO;
-import domain.collaborators.application.useCases.CreateUserUseCase;
 import domain.collaborators.enterprise.entities.User;
 import domain.collaborators.enterprise.entities.UserRole;
-import org.junit.Before;
-import org.junit.Test;
-import test.java.domain.collaborators.application.cryptography.HashGenerator;
-import test.repositories.InMemoryUsersRepository;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import domain.collaborators.application.cryptography.HashGenerator;
+import repositories.InMemoryUsersRepository;
 
 import java.util.UUID;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CreateUserUseCaseTest {
 
     private CreateUserUseCase sut;
     private InMemoryUsersRepository usersRepository;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         usersRepository = new InMemoryUsersRepository();
-        HashGenerator hashGenerator = new HashGenerator();
+        HashGenerator hashGenerator = new HashGeneratorTest();
         sut = new CreateUserUseCase(usersRepository, hashGenerator);
     }
 
@@ -45,11 +46,11 @@ public class CreateUserUseCaseTest {
         sut.execute(dto);
 
         assertEquals(2, usersRepository.items.size());
-        assertEquals(name, usersRepository.items.getLast().getName());
+        assertEquals(name, usersRepository.items.get(1).getName());
         assertEquals("123456-hashed", usersRepository.items.get(1).getPassword());
     }
 
-    @Test(expected = NotFoundError.class)
+    @Test
     public void itShouldNotBePossibleToCreateWithANonExistentAuthenticatedUser() {
         UUID companyId = UUID.randomUUID();
         User user = User.create("Lucas Camargo", "lfqcamargo@gmail.com.br", "a123456", UserRole.ADMIN, companyId);
@@ -63,10 +64,10 @@ public class CreateUserUseCaseTest {
 
         CreateUserRequestDTO dto = new CreateUserRequestDTO(UUID.randomUUID(), name, email, password, role);
 
-        sut.execute(dto);
+        assertThrows(NotFoundError.class, () -> sut.execute(dto));
     }
 
-    @Test(expected = NotPermissionError.class)
+    @Test
     public void itShouldNotBePossibleToCreateWithAnAuthenticatedUserWithoutPermission() {
         UUID companyId = UUID.randomUUID();
         User user = User.create("Lucas Camargo", "lfqcamargo@gmail.com.br", "a123456", UserRole.USER, companyId);
@@ -80,10 +81,10 @@ public class CreateUserUseCaseTest {
 
         CreateUserRequestDTO dto = new CreateUserRequestDTO(user.getId(), name, email, password, role);
 
-        sut.execute(dto);
+        assertThrows(NotPermissionError.class, () -> sut.execute(dto));
     }
 
-    @Test(expected = AlreadyExistsError.class)
+    @Test
     public void itShouldNotBePossibleToCreateWithAnEmailAlreadyRegistered() {
         UUID companyId = UUID.randomUUID();
         User user = User.create("Lucas Camargo", "lfqcamargo@gmail.com", "a123456", UserRole.ADMIN, companyId);
@@ -97,6 +98,6 @@ public class CreateUserUseCaseTest {
 
         CreateUserRequestDTO dto = new CreateUserRequestDTO(user.getId(), name, email, password, role);
 
-        sut.execute(dto);
+        assertThrows(AlreadyExistsError.class, () -> sut.execute(dto));
     }
 }

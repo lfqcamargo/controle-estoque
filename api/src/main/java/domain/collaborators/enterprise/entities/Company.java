@@ -2,7 +2,6 @@ package domain.collaborators.enterprise.entities;
 
 import core.entities.Entity;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 

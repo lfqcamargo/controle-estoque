@@ -1,27 +1,30 @@
-package test.java.domain.collaborators.application.useCases;
-import static org.junit.Assert.*;
+package domain.collaborators.application.useCases;
 
-import domain.collaborators.application.dtos.CreateCompanyRequestDTO;
-import domain.collaborators.application.useCases.CreateCompanyAndUserUseCase;
 import core.errors.AlreadyExistsError;
-import org.junit.Before;
-import org.junit.Test;
-import test.java.domain.collaborators.application.cryptography.HashGenerator;
-import test.repositories.InMemoryCompaniesRepository;
-import test.repositories.InMemoryUsersRepository;
+import domain.collaborators.application.cryptography.HashGenerator;
+import domain.collaborators.application.cryptography.HashGeneratorTest;
+import domain.collaborators.application.dtos.CreateCompanyRequestDTO;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import repositories.InMemoryCompaniesRepository;
+import repositories.InMemoryUsersRepository;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class CreateCompanyAndUserUseCaseTest {
 
     private CreateCompanyAndUserUseCase sut;
     private InMemoryCompaniesRepository companiesRepository;
 
-    @Before
+    @BeforeEach
     public void setUp() {
-        HashGenerator hashGenerator = new HashGenerator();
+        HashGenerator hashGeneratorTest = new HashGeneratorTest();
         InMemoryUsersRepository usersRepository = new InMemoryUsersRepository();
         companiesRepository = new InMemoryCompaniesRepository(usersRepository);
 
-        sut = new CreateCompanyAndUserUseCase(companiesRepository, usersRepository, hashGenerator);
+        sut = new CreateCompanyAndUserUseCase(companiesRepository, usersRepository, hashGeneratorTest);
     }
 
     @Test
@@ -38,11 +41,12 @@ public class CreateCompanyAndUserUseCaseTest {
         sut.execute(dto);
 
         assertEquals(1, companiesRepository.items.size());
-        assertEquals(nameCompany, companiesRepository.items.getFirst().getName());
+        assertEquals(nameCompany, companiesRepository.items.get(0).getName());
     }
 
-    @Test(expected = AlreadyExistsError.class)
+    @Test
     public void itShouldNotBePossibleToCreateCompanyWithTheSameCnpj() {
+
         String cnpj = "123456";
         String nameCompany = "lfqcamargo@gmail.com";
 
@@ -50,13 +54,15 @@ public class CreateCompanyAndUserUseCaseTest {
         String email = "lfqcamargo@gmail.com";
         String password = "123456";
 
-        CreateCompanyRequestDTO dto = new CreateCompanyRequestDTO(cnpj, nameCompany, nameUser, email, password);
+        CreateCompanyRequestDTO dto1 = new CreateCompanyRequestDTO(cnpj, nameCompany, nameUser, email, password);
+        CreateCompanyRequestDTO dto2 = new CreateCompanyRequestDTO(cnpj, nameCompany, nameUser, "email", password);
 
-        sut.execute(dto);
-        sut.execute(dto);
+        sut.execute(dto1);
+
+        assertThrows(AlreadyExistsError.class, () -> sut.execute(dto2));
     }
 
-    @Test(expected = AlreadyExistsError.class)
+    @Test
     public void itShouldNotBePossibleToCreateCompanyWithUserEmailTheSameEmail() {
         String cnpj = "123456";
         String nameCompany = "lfqcamargo@gmail.com";
@@ -69,6 +75,7 @@ public class CreateCompanyAndUserUseCaseTest {
         CreateCompanyRequestDTO dto2 = new CreateCompanyRequestDTO("12345", nameCompany, nameUser, email, password);
 
         sut.execute(dto1);
-        sut.execute(dto2);
+
+        assertThrows(AlreadyExistsError.class, () -> sut.execute(dto2));
     }
 }

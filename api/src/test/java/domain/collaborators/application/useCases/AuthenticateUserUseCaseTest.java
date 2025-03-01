@@ -1,20 +1,16 @@
-package test.java.domain.collaborators.application.useCases;
+package domain.collaborators.application.useCases;
 
+import domain.collaborators.application.cryptography.*;
 import domain.collaborators.application.dtos.AuthenticatedUserResponseDTO;
-import test.java.domain.collaborators.application.cryptography.Encrypter;
-import test.java.domain.collaborators.application.cryptography.HashComparer;
-import test.java.domain.collaborators.application.cryptography.HashGenerator;
-import domain.collaborators.application.repositories.UsersRepository;
-import domain.collaborators.application.useCases.AuthenticateUserUseCase;
 import domain.collaborators.enterprise.entities.User;
 import domain.collaborators.enterprise.entities.UserRole;
-import org.junit.Before;
-import org.junit.Test;
-import test.repositories.InMemoryUsersRepository;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import repositories.InMemoryUsersRepository;
 
 import java.util.UUID;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AuthenticateUserUseCaseTest {
 
@@ -22,11 +18,11 @@ public class AuthenticateUserUseCaseTest {
     private AuthenticateUserUseCase sut;
 
 
-    @Before
+    @BeforeEach
     public void setUp() {
         usersRepository = new InMemoryUsersRepository();
-        HashComparer hashComparer = new HashComparer();
-        Encrypter encrypter = new Encrypter();
+        HashComparer hashComparer = new HashComparerTest();
+        Encrypter encrypter = new EncrypterTest();
 
 
         sut = new AuthenticateUserUseCase(usersRepository, hashComparer, encrypter);
@@ -39,7 +35,7 @@ public class AuthenticateUserUseCaseTest {
         String email = "lfqcamargo@gmail.com";
         String password = "123456";
 
-        HashGenerator hashGenerator = new HashGenerator();
+        HashGenerator hashGenerator = new HashGeneratorTest();
 
         String hashedPassword = hashGenerator.hash(password);
 
@@ -49,7 +45,7 @@ public class AuthenticateUserUseCaseTest {
 
         AuthenticatedUserResponseDTO accessToken = sut.execute(email, password);
 
-        Encrypter encrypter = new Encrypter();
+        Encrypter encrypter = new EncrypterTest();
         String idEncrypter = encrypter.encrypt(user.getId().toString());
 
 

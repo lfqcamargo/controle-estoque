@@ -8,10 +8,6 @@ import domain.collaborators.application.cryptography.HashGenerator;
 import domain.collaborators.application.dtos.EditUserRequestDTO;
 import domain.collaborators.application.repositories.UsersRepository;
 import domain.collaborators.enterprise.entities.User;
-import domain.collaborators.enterprise.entities.UserRole;
-
-import java.util.List;
-import java.util.UUID;
 
 public class EditUserUseCase {
 

@@ -3,11 +3,11 @@ package domain.collaborators.application.useCases;
 import core.errors.AlreadyExistsError;
 import core.errors.NotFoundError;
 import core.errors.NotPermissionError;
+import domain.collaborators.application.cryptography.HashGenerator;
 import domain.collaborators.application.dtos.CreateUserRequestDTO;
 import domain.collaborators.application.repositories.UsersRepository;
 import domain.collaborators.enterprise.entities.User;
 import domain.collaborators.enterprise.entities.UserRole;
-import domain.collaborators.application.cryptography.HashGenerator;
 
 import java.util.UUID;
 

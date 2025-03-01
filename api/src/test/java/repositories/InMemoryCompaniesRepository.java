@@ -1,4 +1,4 @@
-package test.repositories;
+package repositories;
 
 import domain.collaborators.application.repositories.CompaniesRepository;
 import domain.collaborators.enterprise.entities.Company;
