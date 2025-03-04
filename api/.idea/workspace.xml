@@ -5,108 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e912e120-a19c-46c4-af6f-13a9220368a2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/entities/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/entities/entity.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/errors/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/errors/already_exists_error.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/errors/resource_not_found_error.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/errors/wrong_credentials.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/application/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/application/interfaces/Icompanies_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/application/interfaces/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/application/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/application/services/create_company.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/dto/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/dto/create_company_request_dto.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/enterprise/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/enterprise/entities/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/enterprise/entities/company.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/users/enterprise/entities/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/composer/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/composer/create_company_composer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/controllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/controllers/create_company_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/entities/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/entities/company.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/mappers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/mappers/company_mapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/repositories/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/repositories/companies_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/settings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/settings/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/database/postgree/settings/connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/errors/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/errors/http_bad_request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/errors/http_conflict_request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/errors/http_not_found.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/errors/http_unprocessable_entity.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/middlewares/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/middlewares/handle_errors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/routes/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/routes/company_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/server/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/server/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/validators/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/validators/create_company_validator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/views/create_company_view.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/views/interfaces/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/infra/views/interfaces/view_interface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../api3/CompaniesRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../api3/SpringDataCompaniesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../api3/src/main/java/domain/collaborators/application/useCases/GroupsUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../api3/src/main/java/domain/collaborators/enterprise/entities/Groups.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../api3/src/main/java/infra/http/controllers/Groups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/entities/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/errors/AlreadyExistsError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/errors/NotAllowed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/errors/NotFoundError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/errors/NotPermissionError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/errors/WrongCredentialsError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/cryptography/Encrypter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/cryptography/HashComparer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/cryptography/HashGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/dtos/AuthenticatedUserResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/dtos/CreateCompanyRequestDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/dtos/CreateUserRequestDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/dtos/EditUserRequestDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/repositories/CompaniesRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/repositories/UsersRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/useCases/AuthenticateUserUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/useCases/CreateCompanyAndUserUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/useCases/CreateUserUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/application/useCases/EditUserUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/enterprise/entities/Company.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/enterprise/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/collaborators/enterprise/entities/UserRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/infra/http/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/infra/http/controllers/users/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/collaborators/application/cryptography/EncrypterTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/collaborators/application/cryptography/HashComparerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/collaborators/application/cryptography/HashGeneratorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/collaborators/application/useCases/AuthenticateUserUseCaseTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/collaborators/application/useCases/CreateCompanyAndUserUseCaseTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/collaborators/application/useCases/CreateUserUseCaseTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/collaborators/application/useCases/EditUserUseCaseTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/repositories/InMemoryCompaniesRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/repositories/InMemoryUsersRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/users/application/services/create_company.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/users/application/services/create_company_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infra/composer/create_company_composer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/infra/composer/create_company_composer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infra/controllers/create_company_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/infra/controllers/create_company_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infra/routes/company_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/infra/routes/company_routes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,16 +38,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.run.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Programacao/Projetos/controle_estoque/api/src/infra/views",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programacao/Projetos/controle_estoque/api/src/infra/views&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Programacao\Projetos\controle_estoque\api\src\infra\views" />

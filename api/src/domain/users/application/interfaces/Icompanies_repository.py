@@ -8,3 +8,7 @@ class ICompaniesRepository(ABC):
     @abstractmethod
     def create(self, company: Company) -> None:
         pass
+
+    @abstractmethod
+    def find_by_cnpj(self, cnpj: str) -> Company | None:
+        pass

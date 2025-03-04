@@ -3,13 +3,12 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from src.infra.database.postgree.settings.connection import db_connection_handler
 from src.infra.routes.company_routes import companies_route_bp
-from src.infra.views.http_types.http_response import HttpResponse
 from src.infra.middlewares.handle_errors import handle_errors
 
 
 def create_app():
     """
-    Init App
+    Init Server
     """
     db_connection_handler.connect_to_db()
 
