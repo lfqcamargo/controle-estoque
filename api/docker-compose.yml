@@ -1,0 +1,12 @@
+services:
+  postgres:
+    container_name: controle_estoque
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: controle_estoque
+    volumes:
+      - ./data/pg:/data/postgres
